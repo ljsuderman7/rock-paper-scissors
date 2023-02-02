@@ -13,3 +13,24 @@ function getComputerChoice() {
         return "Scissors"
     }
 }
+
+function playRound(playerSelection, computerSelection) {
+    let result = ""
+    if (playerSelection == "Rock") {
+        if (computerSelection == "Rock"){
+            result = "Tie"
+        }
+        else if (computerSelection == "Paper"){
+            result = "You lose"
+        }
+        else {
+            result = "You win"
+        }
+    }
+
+    return result
+}
+
+const playerSelection = "Rock"
+const computerSelection = getComputerChoice()
+console.log(playRound(playerSelection, computerSelection))
