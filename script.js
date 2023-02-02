@@ -28,9 +28,37 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 
+    if (playerSelection == "Paper") {
+        if (computerSelection == "Paper"){
+            result = "Tie"
+        }
+        else if (computerSelection == "Scissors"){
+            result = "You lose"
+        }
+        else {
+            result = "You win"
+        }
+    }
+
+    if (playerSelection == "Scissors") {
+        if (computerSelection == "Scissors"){
+            result = "Tie"
+        }
+        else if (computerSelection == "Rock"){
+            result = "You lose"
+        }
+        else {
+            result = "You win"
+        }
+    }
+
     return result
 }
 
-const playerSelection = "Rock"
+const playerSelection = prompt("Enter Selection (Rock, Paper, or Scissors)")
 const computerSelection = getComputerChoice()
+
+console.log(playerSelection)
+console.log(computerSelection)
+
 console.log(playRound(playerSelection, computerSelection))
