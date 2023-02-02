@@ -14,6 +14,7 @@ function getComputerChoice() {
     }
 }
 
+// plays one round
 function playRound(playerSelection, computerSelection) {
     let result = ""
     if (playerSelection == "Rock") {
@@ -55,10 +56,26 @@ function playRound(playerSelection, computerSelection) {
     return result
 }
 
-const playerSelection = prompt("Enter Selection (Rock, Paper, or Scissors)")
-const computerSelection = getComputerChoice()
+function game(){
+    let playerWins = 0
+    let computerWins = 0
 
-console.log(playerSelection)
-console.log(computerSelection)
+    for (let i = 0; i < 5; i++){
+        const playerSelection = prompt("Enter Selection (Rock, Paper, or Scissors)")
+        const computerSelection = getComputerChoice()
 
-console.log(playRound(playerSelection, computerSelection))
+        let result = playRound(playerSelection, computerSelection)
+
+        if (result == "You lose") {
+            computerWins++
+            result += `, ${computerSelection} beats ${playerSelection}`
+        }
+        else if (result == "You win") {
+            playerWins++
+            result += `, ${playerSelection} beats ${computerSelection}`
+        }
+
+        console.log(`${result}. \nPlayer Wins: ${playerWins}\nComputer Wins: ${computerWins}`)
+    }
+}
+game()
